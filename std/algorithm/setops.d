@@ -868,7 +868,6 @@ struct MultiwayMerge(alias less, RangeOfRanges, bool copyable = false)
         _ror = remove!("a.empty", SwapStrategy.unstable)(ror);
         //Build the heap across the range
         _heap.acquire(_ror);
-
     }
 
     ///
@@ -894,7 +893,6 @@ struct MultiwayMerge(alias less, RangeOfRanges, bool copyable = false)
             return;
         }
         // Put the popped range back in the heap
-        import std.stdio;
         _heap.conditionalInsert(_ror.back) || assert(false);
     }
 }
